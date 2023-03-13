@@ -31,7 +31,7 @@ RUN apt-get update \
         libgcc1 \
         libgssapi-krb5-2 \
         libicu70 \
-        libssl1.1 \
+        libssl3 \
         libstdc++6 \
         zlib1g \
     && rm -rf /var/lib/apt/lists/*
