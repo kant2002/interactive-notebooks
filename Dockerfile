@@ -47,9 +47,6 @@ RUN curl -L https://dot.net/v1/dotnet-install.sh | bash -e -s -- --install-dir /
 # Trigger first run experience by running arbitrary cmd
 RUN dotnet help
 
-# Copy notebooks
-COPY ./notebooks/ ${HOME}/Notebooks/
-
 # Copy package sources
 COPY ./NuGet.config ${HOME}/nuget.config
 
@@ -70,6 +67,9 @@ RUN dotnet interactive jupyter install
 
 # Enable telemetry once we install jupyter for the image
 ENV DOTNET_INTERACTIVE_CLI_TELEMETRY_OPTOUT=false
+
+# Copy notebooks
+COPY ./notebooks/ ${HOME}/Notebooks/
 
 # Set root to Notebooks
 WORKDIR ${HOME}/Notebooks/
